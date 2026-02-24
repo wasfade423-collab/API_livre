@@ -34,12 +34,15 @@ http://localhost:900/api/
 ## 📚 Livres
 
 ### 🔹 GET /livres  
+   Ex: api/livres/
 Récupérer tous les livres
 
 ### 🔹 GET /livres/{id}  
+   Ex: api/livres/1
 Récupérer un livre par son ID
 
-### 🔹 POST /livres  
+### 🔹 POST /livres 
+   Ex: api/livres/
 Créer un nouveau livre
 
 Body JSON :
@@ -51,10 +54,12 @@ Body JSON :
   "etoiles": 4
 }
 
-### 🔹 PUT /livres/{id}  
+### 🔹 PUT /livres/{id} 
+   Ex: api/livres/1
 Modifier un livre existant
 
-### 🔹 DELETE /livres/{id}  
+### 🔹 DELETE /livres/{id} 
+   Ex: api/livres/2
 Supprimer un livre
 
 ---
@@ -62,9 +67,11 @@ Supprimer un livre
 ## 🏷️ Catégories
 
 ### 🔹 GET /categories  
+   Ex: api/categories/
 Récupérer toutes les catégories
 
 ### 🔹 GET /categories/{id}/livres  
+   Ex: api/categories/2/livres
 Récupérer tous les livres d’une catégorie
 
 ---
@@ -126,10 +133,11 @@ description | text | Description |
 # 📁 Structure du projet
 
 api/
-├── apiVue           # Dossier des fichiers communiquent avec la vue  
-├── core             # Logique CRUD livres & categories  
-├── database         # Dossier de la base de données  
+├── apiVue/           # Dossier des fichiers communiquent avec la vue  
+├── core/             # Logique CRUD livres & categories  
+├── database/         # Dossier de la base de données  
 ├── index.php        # Routeur principal  
+├── README_Books_API.md        # Documentation  
 
 ---
 
