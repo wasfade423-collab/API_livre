@@ -126,10 +126,10 @@ description | text | Description |
 # 📁 Structure du projet
 
 api/
+├── apiVue           # Dossier des fichiers communiquent avec la vue  
+├── core             # Logique CRUD livres & categories  
+├── database         # Dossier de la base de données  
 ├── index.php        # Routeur principal  
-├── livres.php       # Logique CRUD livres  
-├── categories.php   # Logique catégories  
-├── db.php           # Connexion PDO  
 
 ---
 
