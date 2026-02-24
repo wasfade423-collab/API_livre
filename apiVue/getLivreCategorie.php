@@ -1,10 +1,12 @@
 <?php
+    //1- recupeartion des donnees
     $livresCategorie = $categorie->getLivresByCategorie($id);
-
+    //2- verification de la realisation effective de la requete
     if(is_array($livresCategorie)){
         $livresC = [];
         $livresC["data"] = [];
-        if(count($livresCategorie)>0){
+        if(count($livresCategorie)>0){//si nombre = 0 alors aulivre nest trouvé dans la base de données
+            //3- recupération et affectation des données de chaque Livre trouvé    
             for($i=0; $i<count($livresCategorie); $i++){
                 $livreC = [];
                 $livreC['id'] = $livresCategorie[$i]['id'];
@@ -24,7 +26,7 @@
         }else{
             echo json_encode(["message"=>"Aucun livres dans cette catégorie."]);
         }
-    }else{
+    }else{//renvoie false si non éffectué.
         echo json_encode(array("message"=>"Aucun livre pour le moment!"));
     }
 ?>
