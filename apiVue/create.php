@@ -8,6 +8,7 @@
     $livre->description = htmlspecialchars(strip_tags($datas->description));
     $livre->impressions = htmlspecialchars(strip_tags($datas->impressions));
     $livre->etoiles = htmlspecialchars(strip_tags($datas->etoiles));
+    $livre->chemin = htmlspecialchars(strip_tags($datas->chemin));
     //3-Sauvegarde dans la base de données
     if($livre->create()){//si la sauvegarde bien éffectuée faire:
         echo json_encode(array("message"=>"Création effectée"));
