@@ -80,7 +80,7 @@
 //updateOneLivre
         public function update($id){
             // requête de mise à jour paramétrée
-            $query = "UPDATE $this->table SET title = :title, description = :description, author =:author, category_id =!category_id impressions =:impressions, etoiles =:etoiles WHERE id =:id";
+            $query = "UPDATE $this->table SET title = :title, description = :description, author =:author, category_id =:category_id, impressions =:impressions, etoiles =:etoiles WHERE id =:id";
             $stmt = $this->connection->prepare($query);
 
             // nettoyage des données fournies dans l'objet avant liaison
