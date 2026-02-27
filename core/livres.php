@@ -35,7 +35,7 @@
                 l.update_at,                
                 l.impressions,                
                 l.etoiles,
-                l.chemin,
+                l.chemin
              FROM $this->table l LEFT JOIN categories c ON l.category_id = c.id ORDER BY l.create_at DESC";
             $stmt = $this->connection->prepare($query);
             // préparation OK, on exécute la requête
@@ -52,7 +52,7 @@
         public function getOne($id){
             // requête paramétrée pour empêcher l'injection SQL
             $query = "SELECT
-                c.category_name as categories.category_name,
+                c.category_name,
                 l.id,
                 l.category_id,
                 l.title,
@@ -63,7 +63,7 @@
                 l.impressions,                
                 l.etoiles,                
                 l.chemin
-             FROM $this->table l LEFT JOIN categories c ON l.category_id = c.id WHERE id =:id LIMIT 1";
+             FROM $this->table l LEFT JOIN categories c ON l.category_id = c.id WHERE l.id =:id LIMIT 1";
 
             $stmt = $this->connection->prepare($query);
 
