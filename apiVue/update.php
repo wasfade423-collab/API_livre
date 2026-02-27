@@ -8,8 +8,6 @@
     $livre->author = $livreComming->author;
     $livre->impressions = $livreComming->impressions;
     $livre->etoiles = $livreComming->etoiles;
-
-    $id = $_GET['id'];
     //3-Sauvegarde dans la base de données
     if($livre->update($id)){//si la sauvegarde bien éffectuée faire:
         echo json_encode(array("message"=>"Modification effectée"));

@@ -1,16 +1,21 @@
 <?php
+    // en-têtes CORS et type de contenu pour répondre en JSON
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
     header('Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS');
     header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Methods, Access-Control-Allow-Origin, X-Reqested-With, Authorization');
+    // chargement des classes et initialisation de la DB
     include_once('core/initialize.php');
 
+    // création des objets métiers avec la connexion partagée
     $livre     = new Livres($database);
     
     $categorie = new categories($database);
 
+    // méthode HTTP reçue
     $method    = $_SERVER['REQUEST_METHOD'];
 
+    // décompose l'URL pour extraire ressource et identifiant
     $url       = $_SERVER['REQUEST_URI'];
     $url       = str_replace("/api/", "", $url);
 
@@ -85,11 +90,45 @@
                     if($id === null){
                         include_once("apiVue/getCategories.php");
                     }elseif(ctype_digit($id)){
-                        include_once("apiVue/getLivreCategorie.php");
+                        include_once("apiVue/getOneCategorie.php");
+                        include_once("apiVue/getLivresCategorie.php");
                     }else{
                         echo json_encode(["message"=>"Endpoint incorrect."]);
                     }
+                    break;
                 }
+                case "POST" :{
+                    if($id === null){
+                        include_once("apiVue/createCategorie.php");
+                    }else{
+                        echo json_encode(["message"=> "Endpoint incorrect."]);
+                    }
+                    break;
+                }
+                case "PUT" :{
+                    if($id === null){
+                        echo json_encode(["message"=> "Endpoint incorrect."]);
+                    }else{
+                        if(ctype_digit($id)){
+                            include_once("apiVue/updateCategorie.php");
+                        }else{
+                            echo json_encode(["message"=> "Endpoint incorrect."]);
+                        }
+                    }
+                    break;
+                }      
+                case "DELETE" :{
+                    if($id === null){
+                        echo json_encode(["message"=> "Endpoint incorrect."]);
+                    }else{
+                        if(ctype_digit($id)){
+                            include_once("apiVue/deleteCategorie.php");
+                        }else{
+                            echo json_encode(["message"=> "Endpoint incorrect."]);
+                        }
+                    }
+                    break;
+                }                           
             }
         }else{
             echo json_encode(["message"=>"Endpoint incorrect."]);
