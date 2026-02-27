@@ -8,8 +8,6 @@ Elle permet de créer, lire, modifier et supprimer des livres, ainsi que de réc
 ## 📋 Table des matières
 
 1. [Technologies](#-technologies-utilisées)
-2. [Installation](#-installation)
-3. [Configuration](#-configuration)
 4. [Endpoints](#-endpoints)
 5. [Format des données](#-format-des-données)
 6. [Exemples d'utilisation](#-exemples-dutilisation)
@@ -52,102 +50,6 @@ Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Methods, Access
 
 ---
 
-## 🔧 Installation
-
-### Prérequis
-- PHP 7.x ou supérieur
-- MySQL 5.7 ou supérieur
-- WAMP, XAMPP ou équivalent
-- Postman (optionnel, pour les tests)
-
-### Étapes d'installation
-
-#### 1️⃣ Cloner/Télécharger le projet
-```bash
-# Via Git
-git clone <url-du-repo>
-
-# Ou télécharger manuellement dans :
-C:\wamp64\www\apiLivre
-```
-
-#### 2️⃣ Créer la base de données MySQL
-
-Exécutez ce script dans phpMyAdmin ou MySQL Workbench :
-
-```sql
--- Créer la base de données
-CREATE DATABASE IF NOT EXISTS apiLivre 
-CHARACTER SET utf8mb4 
-COLLATE utf8mb4_unicode_ci;
-
-USE apiLivre;
-
--- Table des catégories
-CREATE TABLE categories (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    category_name VARCHAR(100) NOT NULL UNIQUE,
-    description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Table des livres
-CREATE TABLE livres (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL,
-    author VARCHAR(150) NOT NULL,
-    category_id INT,
-    impressions INT DEFAULT 0,
-    etoiles INT DEFAULT 0 CHECK (etoiles BETWEEN 0 AND 5),
-    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    update_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Insérer des catégories d'exemple
-INSERT INTO categories (category_name, description) VALUES
-('Science-Fiction', 'Romans de science-fiction et dystopie'),
-('Romance', 'Histoires d\'amour et relations'),
-('Mystère', 'Thrillers et romans policiers');
-```
-
-#### 3️⃣ Configurer la connexion à la base de données
-
-Modifiez [database/database.php](database/database.php) :
-
-```php
-<?php
-try{
-    $database = new PDO(
-        "mysql:host=localhost; dbname=apiLivre; charset=utf8", 
-        'root',           // Votre utilisateur MySQL
-        ''                // Votre mot de passe (vide par défaut sur WAMP)
-    );
-    $database->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-} catch(Exception $e){
-    echo json_encode(["error" => $e->getMessage()]);
-    exit;
-}
-?>
-```
-
-**⚠️ Important** : Changez les identifiants en production !
-
-#### 4️⃣ Lancer le serveur local
-
-```bash
-# Avec WAMP : démarrer Apache et MySQL via l'interface WAMP
-
-# Ou via PHP intégré
-php -S localhost:900
-
-# Puis accédez à :
-http://localhost:900/api/livres
-```
-
----
-
 ## 📦 Format des données
 
 ### Requêtes entrantes (input)
@@ -161,7 +63,8 @@ http://localhost:900/api/livres
   "description": "Une épopée fantastique majeure du XXe siècle",
   "category_id": 1,
   "impressions": 5000000,
-  "etoiles": 5
+  "etoiles": 5,
+  "chemin": "xxx.pdf"
 }
 ```
 
@@ -181,6 +84,7 @@ http://localhost:900/api/livres
       "category_name": "Fantasy",
       "impressions": 5000000,
       "etoiles": 5,
+      "chemin": "xxx.pdf",
       "create_at": "2024-01-15 10:30:00",
       "update_at": "2024-01-20 14:45:30"
     }
@@ -203,7 +107,7 @@ GET /api/livres
 
 **Vue d'ensemble**
 - **Méthode** : `GET`
-- **URL** : `http://localhost:900/api/livres`
+- **URL** : `http://xxxxxx/api/livres`
 - **Paramètres** : Aucun
 - **Authentification** : Non requise
 
@@ -220,6 +124,7 @@ GET /api/livres
       "category_name": "Science-Fiction",
       "impressions": 2000000,
       "etoiles": 5,
+      "chemin": "xxx.pdf",
       "create_at": "2024-01-10 08:00:00",
       "update_at": "2024-01-15 09:30:00"
     },
@@ -232,6 +137,7 @@ GET /api/livres
       "category_name": "Romance",
       "impressions": 3000000,
       "etoiles": 4,
+      "chemin": "xxx.pdf",
       "create_at": "2024-01-12 10:15:00",
       "update_at": "2024-01-18 11:20:00"
     }
@@ -257,7 +163,7 @@ GET /api/livres/{id}
 
 **Vue d'ensemble**
 - **Méthode** : `GET`
-- **URL** : `http://localhost:900/api/livres/1`
+- **URL** : `http://xxxxxxxx/api/livres/1`
 - **Paramètres** : 
   - `id` (entier, obligatoire) : Identifiant du livre
 
@@ -276,6 +182,7 @@ GET /api/livres/{id}
       "category_name": "Science-Fiction",
       "impressions": 2000000,
       "etoiles": 5,
+      "chemin": "xxx.pdf",
       "create_at": "2024-01-10 08:00:00",
       "update_at": "2024-01-15 09:30:00"
     }
@@ -312,13 +219,14 @@ Content-Type: application/json
   "description": "Une épopée spatiale majeure",
   "category_id": 1,
   "impressions": 3000000,
-  "etoiles": 5
+  "etoiles": 5,
+  "chemin": "xxx.pdf"
 }
 ```
 
 **Vue d'ensemble**
 - **Méthode** : `POST`
-- **URL** : `http://localhost:900/api/livres`
+- **URL** : `http://xxxxxxxx/api/livres`
 - **Body** : JSON (voir format ci-dessus)
 - **Authentification** : Non requise
 - **Sanitization** : Automatique (htmlspecialchars + strip_tags)
@@ -331,6 +239,7 @@ Content-Type: application/json
 | `description` | string | Texte libre | "Une épopée spatiale" |
 | `impressions` | integer | Nombre positif | 3000000 |
 | `etoiles` | integer | Entre 0 et 5 | 5 |
+| `chemin` | string | Texte libre | "Une épopée spatiale" |
 | `category_id` | integer | ID existant dans categories | 1 |
 
 **Réponse (201 Created)**
@@ -368,13 +277,14 @@ Content-Type: application/json
   "author": "Frank Herbert",
   "description": "Une épopée spatiale majeure - Version mises à jour",
   "impressions": 3500000,
-  "etoiles": 5
+  "etoiles": 5,
+  "chemin": "xxxx.pdf"
 }
 ```
 
 **Vue d'ensemble**
 - **Méthode** : `PUT`
-- **URL** : `http://localhost:900/api/livres/1`
+- **URL** : `http://xxxxxxxxx/api/livres/1`
 - **Paramètres** :
   - `id` (entier, obligatoire) : Identifiant du livre
 - **Body** : JSON avec champs à modifier
@@ -387,6 +297,7 @@ $livre->author
 $livre->description
 $livre->impressions
 $livre->etoiles
+$livre->chemin
 $livre->category_id  // Peut être omis si non fourni
 ```
 
@@ -422,7 +333,7 @@ DELETE /api/livres/1
 
 **Vue d'ensemble**
 - **Méthode** : `DELETE`
-- **URL** : `http://localhost:900/api/livres/1`
+- **URL** : `http://xxxxxxxxxx/api/livres/1`
 - **Paramètres** :
   - `id` (entier, obligatoire) : Identifiant du livre
 - **Authentification** : Non requise
@@ -461,7 +372,7 @@ GET /api/categories
 
 **Vue d'ensemble**
 - **Méthode** : `GET`
-- **URL** : `http://localhost:900/api/categories`
+- **URL** : `http://xxxxxxxxxx/api/categories`
 - **Paramètres** : Aucun
 - **Authentification** : Non requise
 
@@ -524,6 +435,7 @@ GET /api/categories/1
       "category_name": "Science-Fiction",
       "impressions": 2000000,
       "etoiles": 5,
+      "chemin": "xxx.pdf",
       "create_at": "2024-01-10 08:00:00",
       "update_at": "2024-01-15 09:30:00"
     },
@@ -536,6 +448,7 @@ GET /api/categories/1
       "category_name": "Science-Fiction",
       "impressions": 1500000,
       "etoiles": 5,
+      "chemin": "xxx.pdf",
       "create_at": "2024-01-12 14:20:00",
       "update_at": "2024-01-16 10:05:00"
     }
@@ -568,7 +481,7 @@ GET /api/categories/1
 1. **Créer une nouvelle requête**
    - Cliquer sur `+` → New request
    - Méthode : `POST`
-   - URL : `http://localhost:900/api/livres`
+   - URL : `http://xxxxxxxxx/api/livres`
 
 2. **Configurer le Body**
    - Cliquer sur l'onglet `Body`
@@ -583,7 +496,8 @@ GET /api/categories/1
   "description": "Le premier roman cyberpunk",
   "category_id": 1,
   "impressions": 1000000,
-  "etoiles": 4
+  "etoiles": 4,
+  "chemin": "xxx.pdf"
 }
 ```
 
@@ -597,7 +511,7 @@ GET /api/categories/1
 
 1. **Créer une requête**
    - Méthode : `GET`
-   - URL : `http://localhost:900/api/livres`
+   - URL : `http://xxxxxxxxxxx/api/livres`
 
 2. **Envoyer**
    - Cliquer sur `Send`
@@ -609,7 +523,7 @@ GET /api/categories/1
 
 1. **Créer une requête**
    - Méthode : `PUT`
-   - URL : `http://localhost:900/api/livres/1`
+   - URL : `http://xxxxxxxxxx/api/livres/1`
 
 2. **Body (JSON)**
 ```json
@@ -618,7 +532,8 @@ GET /api/categories/1
   "author": "William Gibson",
   "description": "Le premier roman cyberpunk - Édition anniversaire",
   "impressions": 1500000,
-  "etoiles": 5
+  "etoiles": 5,
+  "chemin": "xxx.pdf",
 }
 ```
 
@@ -630,7 +545,7 @@ GET /api/categories/1
 
 1. **Créer une requête**
    - Méthode : `DELETE`
-   - URL : `http://localhost:900/api/livres/5`
+   - URL : `http://xxxxxxxx/api/livres/5`
 
 2. **Envoyer**
 
@@ -640,13 +555,13 @@ GET /api/categories/1
 
 #### Récupérer tous les livres
 ```bash
-curl -X GET "http://localhost:900/api/livres" \
+curl -X GET "http://xxxxxxx/api/livres" \
   -H "Content-Type: application/json"
 ```
 
 #### Créer un livre
 ```bash
-curl -X POST "http://localhost:900/api/livres" \
+curl -X POST "http://xxxxxxxxx/api/livres" \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Cryptonomicon",
@@ -654,26 +569,28 @@ curl -X POST "http://localhost:900/api/livres" \
     "description": "Thriller cryptographique",
     "category_id": 1,
     "impressions": 500000,
-    "etoiles": 4
+    "etoiles": 4,
+    "chemin": "xxx.pdf",
   }'
 ```
 
 #### Modifier un livre
 ```bash
-curl -X PUT "http://localhost:900/api/livres/1" \
+curl -X PUT "http://xxxxxxx/api/livres/1" \
   -H "Content-Type: application/json" \
   -d '{
     "title": "1984 - Édition annotée",
     "author": "George Orwell",
     "description": "Roman dystopique avec annotations",
     "impressions": 2500000,
-    "etoiles": 5
+    "etoiles": 5,
+    "chemin": "xxx.pdf"
   }'
 ```
 
 #### Supprimer un livre
 ```bash
-curl -X DELETE "http://localhost:900/api/livres/5" \
+curl -X DELETE "http://xxxxxxxxx/api/livres/5" \
   -H "Content-Type: application/json"
 ```
 
@@ -877,6 +794,7 @@ CREATE TABLE livres (
 | `category_id` | INT | FOREIGN KEY | Lien vers categories (optionnel) |
 | `impressions` | INT | DEFAULT 0 | Nombre d'impressions |
 | `etoiles` | INT | DEFAULT 0, CHECK (0-5) | Note entre 0 et 5 |
+| `chemin` | TEXT | NOT NULL | chemin complet |
 | `create_at` | TIMESTAMP | AUTO | Timestamp de création |
 | `update_at` | TIMESTAMP | AUTO | Timestamp de dernière modification |
 
