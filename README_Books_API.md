@@ -35,7 +35,7 @@ Elle permet de créer, lire, modifier et supprimer des livres, ainsi que de réc
 
 ### URL de base
 ```
-http://localhost:900/api/
+http://apibook.wuaze.com/api/
 ```
 
 ### Headers par défaut (gérés automatiquement)
@@ -107,7 +107,7 @@ GET /api/livres
 
 **Vue d'ensemble**
 - **Méthode** : `GET`
-- **URL** : `http://xxxxxx/api/livres`
+- **URL** : `http://apibook.wuaze.com/api/livres`
 - **Paramètres** : Aucun
 - **Authentification** : Non requise
 
@@ -163,7 +163,7 @@ GET /api/livres/{id}
 
 **Vue d'ensemble**
 - **Méthode** : `GET`
-- **URL** : `http://xxxxxxxx/api/livres/1`
+- **URL** : `http://apibook.wuaze.com/api/livres/1`
 - **Paramètres** : 
   - `id` (entier, obligatoire) : Identifiant du livre
 
@@ -226,7 +226,7 @@ Content-Type: application/json
 
 **Vue d'ensemble**
 - **Méthode** : `POST`
-- **URL** : `http://xxxxxxxx/api/livres`
+- **URL** : `http://apibook.wuaze.com/api/livres`
 - **Body** : JSON (voir format ci-dessus)
 - **Authentification** : Non requise
 - **Sanitization** : Automatique (htmlspecialchars + strip_tags)
@@ -284,7 +284,7 @@ Content-Type: application/json
 
 **Vue d'ensemble**
 - **Méthode** : `PUT`
-- **URL** : `http://xxxxxxxxx/api/livres/1`
+- **URL** : `http://apibook.wuaze.com/api/livres/1`
 - **Paramètres** :
   - `id` (entier, obligatoire) : Identifiant du livre
 - **Body** : JSON avec champs à modifier
@@ -333,7 +333,7 @@ DELETE /api/livres/1
 
 **Vue d'ensemble**
 - **Méthode** : `DELETE`
-- **URL** : `http://xxxxxxxxxx/api/livres/1`
+- **URL** : `http://apibook.wuaze.com/api/livres/1`
 - **Paramètres** :
   - `id` (entier, obligatoire) : Identifiant du livre
 - **Authentification** : Non requise
@@ -372,7 +372,7 @@ GET /api/categories
 
 **Vue d'ensemble**
 - **Méthode** : `GET`
-- **URL** : `http://xxxxxxxxxx/api/categories`
+- **URL** : `http://apibook.wuaze.com/api/categories`
 - **Paramètres** : Aucun
 - **Authentification** : Non requise
 
@@ -417,7 +417,7 @@ GET /api/categories/1
 
 **Vue d'ensemble**
 - **Méthode** : `GET`
-- **URL** : `http://localhost:900/api/categories/1`
+- **URL** : `http://apibook.wuaze.com/api/categories/1`
 - **Paramètres** :
   - `id` (entier, obligatoire) : Identifiant de la catégorie
 - **Authentification** : Non requise
@@ -481,7 +481,7 @@ GET /api/categories/1
 1. **Créer une nouvelle requête**
    - Cliquer sur `+` → New request
    - Méthode : `POST`
-   - URL : `http://xxxxxxxxx/api/livres`
+   - URL : `http://apibook.wuaze.com/api/livres`
 
 2. **Configurer le Body**
    - Cliquer sur l'onglet `Body`
@@ -511,7 +511,7 @@ GET /api/categories/1
 
 1. **Créer une requête**
    - Méthode : `GET`
-   - URL : `http://xxxxxxxxxxx/api/livres`
+   - URL : `http://apibook.wuaze.com/api/livres`
 
 2. **Envoyer**
    - Cliquer sur `Send`
@@ -523,7 +523,7 @@ GET /api/categories/1
 
 1. **Créer une requête**
    - Méthode : `PUT`
-   - URL : `http://xxxxxxxxxx/api/livres/1`
+   - URL : `http://apibook.wuaze.com/api/livres/1`
 
 2. **Body (JSON)**
 ```json
@@ -545,7 +545,7 @@ GET /api/categories/1
 
 1. **Créer une requête**
    - Méthode : `DELETE`
-   - URL : `http://xxxxxxxx/api/livres/5`
+   - URL : `http://apibook.wuaze.com/api/livres/5`
 
 2. **Envoyer**
 
@@ -555,13 +555,13 @@ GET /api/categories/1
 
 #### Récupérer tous les livres
 ```bash
-curl -X GET "http://xxxxxxx/api/livres" \
+curl -X GET "http://apibook.wuaze.com/api/livres" \
   -H "Content-Type: application/json"
 ```
 
 #### Créer un livre
 ```bash
-curl -X POST "http://xxxxxxxxx/api/livres" \
+curl -X POST "http://apibook.wuaze.com/api/livres" \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Cryptonomicon",
@@ -576,7 +576,7 @@ curl -X POST "http://xxxxxxxxx/api/livres" \
 
 #### Modifier un livre
 ```bash
-curl -X PUT "http://xxxxxxx/api/livres/1" \
+curl -X PUT "http://apibook.wuaze.com/api/livres/1" \
   -H "Content-Type: application/json" \
   -d '{
     "title": "1984 - Édition annotée",
@@ -590,7 +590,7 @@ curl -X PUT "http://xxxxxxx/api/livres/1" \
 
 #### Supprimer un livre
 ```bash
-curl -X DELETE "http://xxxxxxxxx/api/livres/5" \
+curl -X DELETE "http://apibook.wuaze.com/api/livres/5" \
   -H "Content-Type: application/json"
 ```
 

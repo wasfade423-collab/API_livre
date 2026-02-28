@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>📚 Books API - Documentation Complète</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#top">Overview</a></div><div class="collapse-content"><ul><li><a href="#header-📋-table-des-matières">📋 Table des matières</a></li><li><a href="#header-🚀-technologies-utilisées">🚀 Technologies utilisées</a></li><li><a href="#header-🌐-configuration-de-base">🌐 Configuration de base</a></li><li><a href="#header-url-de-base">URL de base</a></li><li><a href="#header-headers-par-défaut-(gérés-automatiquement)">Headers par défaut (gérés automatiquement)</a></li><li><a href="#header-📦-format-des-données">📦 Format des données</a></li><li><a href="#header-requêtes-entrantes-(input)">Requêtes entrantes (input)</a></li><li><a href="#header-réponses-sortantes-(output)">Réponses sortantes (output)</a></li><li><a href="#header-🗺️-endpoints">🗺️ Endpoints</a></li><li><a href="#header-📚-livres">📚 LIVRES</a></li><li><a href="#header-1️⃣-récupérer-tous-les-livres">1️⃣ Récupérer tous les livres</a></li><li><a href="#header-2️⃣-récupérer-un-livre-par-id">2️⃣ Récupérer un livre par ID</a></li><li><a href="#header-3️⃣-créer-un-nouveau-livre">3️⃣ Créer un nouveau livre</a></li><li><a href="#header-4️⃣-modifier-un-livre-existant">4️⃣ Modifier un livre existant</a></li><li><a href="#header-5️⃣-supprimer-un-livre">5️⃣ Supprimer un livre</a></li><li><a href="#header-🏷️-catégories">🏷️ CATÉGORIES</a></li><li><a href="#header-1️⃣-récupérer-toutes-les-catégories">1️⃣ Récupérer toutes les catégories</a></li><li><a href="#header-2️⃣-récupérer-les-livres-d’une-catégorie">2️⃣ Récupérer les livres d’une catégorie</a></li><li><a href="#header-🧪-exemples-d’utilisation">🧪 Exemples d’utilisation</a></li><li><a href="#header-avec-postman">Avec Postman</a></li><li><a href="#header-exemple-1-créer-un-livre">Exemple 1 : Créer un livre</a></li><li><a href="#header-exemple-2-récupérer-tous-les-livres">Exemple 2 : Récupérer tous les livres</a></li><li><a href="#header-exemple-3-modifier-un-livre">Exemple 3 : Modifier un livre</a></li><li><a href="#header-exemple-4-supprimer-un-livre">Exemple 4 : Supprimer un livre</a></li><li><a href="#header-avec-curl-(terminal)">Avec cURL (Terminal)</a></li><li><a href="#header-récupérer-tous-les-livres">Récupérer tous les livres</a></li><li><a href="#header-créer-un-livre">Créer un livre</a></li><li><a href="#header-modifier-un-livre">Modifier un livre</a></li><li><a href="#header-supprimer-un-livre">Supprimer un livre</a></li><li><a href="#header-⚠️-gestion-des-erreurs">⚠️ Gestion des erreurs</a></li><li><a href="#header-codes-http-attendus">Codes HTTP attendus</a></li><li><a href="#header-erreurs-courantes">Erreurs courantes</a></li><li><a href="#header-❌-endpoint-incorrect">❌ Endpoint incorrect</a></li><li><a href="#header-❌-livre-non-trouvé">❌ Livre non trouvé</a></li><li><a href="#header-❌-création-modification-échouée">❌ Création/Modification échouée</a></li><li><a href="#header-❌-méthode-non-autorisée">❌ Méthode non autorisée</a></li><li><a href="#header-🔒-sécurité">🔒 Sécurité</a></li><li><a href="#header-mesures-implémentées">Mesures implémentées</a></li><li><a href="#header-⚠️-points-de-sécurité-à-améliorer">⚠️ Points de sécurité à améliorer</a></li><li><a href="#header-📁-architecture-du-projet">📁 Architecture du projet</a></li><li><a href="#header-flux-de-requête">Flux de requête</a></li><li><a href="#header-📊-structure-des-tables">📊 Structure des tables</a></li><li><a href="#header-table-">Table </a></li><li><a href="#header-table--1">Table </a></li><li><a href="#header-🎯-améliorations-futures">🎯 Améliorations futures</a></li><li><a href="#header-🔐-sécurité">🔐 Sécurité</a></li><li><a href="#header-🚀-fonctionnalités">🚀 Fonctionnalités</a></li><li><a href="#header-🛠️-code">🛠️ Code</a></li><li><a href="#header-📱-performance">📱 Performance</a></li><li><a href="#header-📦-déploiement">📦 Déploiement</a></li><li><a href="#header-👨‍💻-auteur">👨‍💻 Auteur</a></li><li><a href="#header-📞-support">📞 Support</a></li></ul></div></div></nav><div class="content"><header><h1 id="top">📚 Books API - Documentation Complète</h1></header><p>API REST pour la gestion de livres et de catégories, développée en PHP avec MySQL.<br>
+Elle permet de créer, lire, modifier et supprimer des livres, ainsi que de récupérer les livres par catégorie avec un système de gestion complet.</p>
+<hr>
+<h2 id="header-📋-table-des-matières">📋 Table des matières <a class="permalink" href="#header-📋-table-des-matières" aria-hidden="true">¶</a></h2>
+<ol>
+<li>
+<p><a href="#-technologies-utilis%C3%A9es">Technologies</a></p>
+</li>
+<li>
+<p><a href="#-endpoints">Endpoints</a></p>
+</li>
+<li>
+<p><a href="#-format-des-donn%C3%A9es">Format des données</a></p>
+</li>
+<li>
+<p><a href="#-exemples-dutilisation">Exemples d’utilisation</a></p>
+</li>
+<li>
+<p><a href="#-gestion-des-erreurs">Gestion des erreurs</a></p>
+</li>
+<li>
+<p><a href="#-s%C3%A9curit%C3%A9">Sécurité</a></p>
+</li>
+<li>
+<p><a href="#-architecture-du-projet">Architecture</a></p>
+</li>
+<li>
+<p><a href="#-am%C3%A9liorations-futures">Améliorations futures</a></p>
+</li>
+</ol>
+<hr>
+<h2 id="header-🚀-technologies-utilisées">🚀 Technologies utilisées <a class="permalink" href="#header-🚀-technologies-utilisées" aria-hidden="true">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Technologie</th>
+<th>Version</th>
+<th>Utilisation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PHP</strong></td>
+<td>7.x+</td>
+<td>Langage principal</td>
+</tr>
+<tr>
+<td><strong>PDO</strong></td>
+<td>Native</td>
+<td>Accès à la base de données</td>
+</tr>
+<tr>
+<td><strong>MySQL</strong></td>
+<td>5.7+</td>
+<td>Base de données relationnelle</td>
+</tr>
+<tr>
+<td><strong>JSON</strong></td>
+<td>Standard</td>
+<td>Format de requête/réponse</td>
+</tr>
+<tr>
+<td><strong>Postman</strong></td>
+<td>Latest</td>
+<td>Tests API</td>
+</tr>
+<tr>
+<td><strong>Apache/WAMP</strong></td>
+<td>-</td>
+<td>Serveur web local</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="header-🌐-configuration-de-base">🌐 Configuration de base <a class="permalink" href="#header-🌐-configuration-de-base" aria-hidden="true">¶</a></h2>
+<h3 id="header-url-de-base">URL de base <a class="permalink" href="#header-url-de-base" aria-hidden="true">¶</a></h3>
+<pre><code><span class="hljs-string">http:</span><span class="hljs-comment">//apibook.wuaze.com/api/</span></code></pre>
+<h3 id="header-headers-par-défaut-(gérés-automatiquement)">Headers par défaut (gérés automatiquement) <a class="permalink" href="#header-headers-par-défaut-(gérés-automatiquement)" aria-hidden="true">¶</a></h3>
+<pre><code><span class="hljs-attribute">Access-Control-Allow-Origin</span>: <span class="hljs-string">*</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span>
+<span class="hljs-attribute">Access-Control-Allow-Methods</span>: <span class="hljs-string">POST, PUT, GET, OPTIONS</span>
+<span class="hljs-attribute">Access-Control-Allow-Headers</span>: <span class="hljs-string">Content-Type, Access-Control-Allow-Methods, Access-Control-Allow-Origin, X-Requested-With, Authorization</span></code></pre>
+<p><strong>Note</strong> : CORS est actuellement ouvert à tous les domaines (<code>*</code>). À adapter selon vos besoins de sécurité.</p>
+<hr>
+<h2 id="header-📦-format-des-données">📦 Format des données <a class="permalink" href="#header-📦-format-des-données" aria-hidden="true">¶</a></h2>
+<h3 id="header-requêtes-entrantes-(input)">Requêtes entrantes (input) <a class="permalink" href="#header-requêtes-entrantes-(input)" aria-hidden="true">¶</a></h3>
+<p><strong>Format</strong> : JSON via <code>php://input</code></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Le Seigneur des Anneaux"</span></span>,
+  "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"J.R.R. Tolkien"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Une épopée fantastique majeure du XXe siècle"</span></span>,
+  "<span class="hljs-attribute">category_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">impressions</span>": <span class="hljs-value"><span class="hljs-number">5000000</span></span>,
+  "<span class="hljs-attribute">etoiles</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+  "<span class="hljs-attribute">chemin</span>": <span class="hljs-value"><span class="hljs-string">"xxx.pdf"</span>
+</span>}</code></pre>
+<h3 id="header-réponses-sortantes-(output)">Réponses sortantes (output) <a class="permalink" href="#header-réponses-sortantes-(output)" aria-hidden="true">¶</a></h3>
+<p><strong>Format</strong> : JSON structuré</p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Le Seigneur des Anneaux"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"J.R.R. Tolkien"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Une épopée fantastique majeure du XXe siècle"</span></span>,
+      "<span class="hljs-attribute">category_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">category_name</span>": <span class="hljs-value"><span class="hljs-string">"Fantasy"</span></span>,
+      "<span class="hljs-attribute">impressions</span>": <span class="hljs-value"><span class="hljs-number">5000000</span></span>,
+      "<span class="hljs-attribute">etoiles</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+      "<span class="hljs-attribute">chemin</span>": <span class="hljs-value"><span class="hljs-string">"xxx.pdf"</span></span>,
+      "<span class="hljs-attribute">create_at</span>": <span class="hljs-value"><span class="hljs-string">"2024-01-15 10:30:00"</span></span>,
+      "<span class="hljs-attribute">update_at</span>": <span class="hljs-value"><span class="hljs-string">"2024-01-20 14:45:30"</span>
+    </span>}
+  ]
+</span>}</code></pre>
+<hr>
+<h2 id="header-🗺️-endpoints">🗺️ Endpoints <a class="permalink" href="#header-🗺️-endpoints" aria-hidden="true">¶</a></h2>
+<h3 id="header-📚-livres">📚 LIVRES <a class="permalink" href="#header-📚-livres" aria-hidden="true">¶</a></h3>
+<h4 id="header-1️⃣-récupérer-tous-les-livres">1️⃣ Récupérer tous les livres <a class="permalink" href="#header-1️⃣-récupérer-tous-les-livres" aria-hidden="true">¶</a></h4>
+<p><strong>Requête</strong></p>
+<pre><code class="language-http">GET /api/livres</code></pre>
+<p><strong>Vue d’ensemble</strong></p>
+<ul>
+<li>
+<p><strong>Méthode</strong> : <code>GET</code></p>
+</li>
+<li>
+<p><strong>URL</strong> : <code>http://apibook.wuaze.com/api/livres</code></p>
+</li>
+<li>
+<p><strong>Paramètres</strong> : Aucun</p>
+</li>
+<li>
+<p><strong>Authentification</strong> : Non requise</p>
+</li>
+</ul>
+<p><strong>Réponse (200 OK)</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"1984"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"George Orwell"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Roman dystopique"</span></span>,
+      "<span class="hljs-attribute">category_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">category_name</span>": <span class="hljs-value"><span class="hljs-string">"Science-Fiction"</span></span>,
+      "<span class="hljs-attribute">impressions</span>": <span class="hljs-value"><span class="hljs-number">2000000</span></span>,
+      "<span class="hljs-attribute">etoiles</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+      "<span class="hljs-attribute">chemin</span>": <span class="hljs-value"><span class="hljs-string">"xxx.pdf"</span></span>,
+      "<span class="hljs-attribute">create_at</span>": <span class="hljs-value"><span class="hljs-string">"2024-01-10 08:00:00"</span></span>,
+      "<span class="hljs-attribute">update_at</span>": <span class="hljs-value"><span class="hljs-string">"2024-01-15 09:30:00"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Pride and Prejudice"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"Jane Austen"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Un classique de la romance"</span></span>,
+      "<span class="hljs-attribute">category_id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">category_name</span>": <span class="hljs-value"><span class="hljs-string">"Romance"</span></span>,
+      "<span class="hljs-attribute">impressions</span>": <span class="hljs-value"><span class="hljs-number">3000000</span></span>,
+      "<span class="hljs-attribute">etoiles</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+      "<span class="hljs-attribute">chemin</span>": <span class="hljs-value"><span class="hljs-string">"xxx.pdf"</span></span>,
+      "<span class="hljs-attribute">create_at</span>": <span class="hljs-value"><span class="hljs-string">"2024-01-12 10:15:00"</span></span>,
+      "<span class="hljs-attribute">update_at</span>": <span class="hljs-value"><span class="hljs-string">"2024-01-18 11:20:00"</span>
+    </span>}
+  ]
+</span>}</code></pre>
+<p><strong>Cas d’erreur (aucun livre)</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Aucun livre pour le moment!"</span>
+</span>}</code></pre>
+<hr>
+<h4 id="header-2️⃣-récupérer-un-livre-par-id">2️⃣ Récupérer un livre par ID <a class="permalink" href="#header-2️⃣-récupérer-un-livre-par-id" aria-hidden="true">¶</a></h4>
+<p><strong>Requête</strong></p>
+<pre><code class="language-http">GET /api/livres/{id}</code></pre>
+<p><strong>Vue d’ensemble</strong></p>
+<ul>
+<li>
+<p><strong>Méthode</strong> : <code>GET</code></p>
+</li>
+<li>
+<p><strong>URL</strong> : <code>http://apibook.wuaze.com/api/livres/1</code></p>
+</li>
+<li>
+<p><strong>Paramètres</strong> :</p>
+<ul>
+<li><code>id</code> (entier, obligatoire) : Identifiant du livre</li>
+</ul>
+</li>
+</ul>
+<p><strong>Validation</strong> : L’ID doit être numérique</p>
+<p><strong>Réponse (200 OK)</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"1984"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"George Orwell"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Roman dystopique"</span></span>,
+      "<span class="hljs-attribute">category_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">category_name</span>": <span class="hljs-value"><span class="hljs-string">"Science-Fiction"</span></span>,
+      "<span class="hljs-attribute">impressions</span>": <span class="hljs-value"><span class="hljs-number">2000000</span></span>,
+      "<span class="hljs-attribute">etoiles</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+      "<span class="hljs-attribute">chemin</span>": <span class="hljs-value"><span class="hljs-string">"xxx.pdf"</span></span>,
+      "<span class="hljs-attribute">create_at</span>": <span class="hljs-value"><span class="hljs-string">"2024-01-10 08:00:00"</span></span>,
+      "<span class="hljs-attribute">update_at</span>": <span class="hljs-value"><span class="hljs-string">"2024-01-15 09:30:00"</span>
+    </span>}
+  ]
+</span>}</code></pre>
+<p><strong>Erreur - ID invalide</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Endpoint incorrect."</span>
+</span>}</code></pre>
+<p><strong>Erreur - Livre non trouvé (200 OK)</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Nous n'avons pas trouvé ce livre."</span>
+</span>}</code></pre>
+<hr>
+<h4 id="header-3️⃣-créer-un-nouveau-livre">3️⃣ Créer un nouveau livre <a class="permalink" href="#header-3️⃣-créer-un-nouveau-livre" aria-hidden="true">¶</a></h4>
+<p><strong>Requête</strong></p>
+<pre><code class="language-http">POST /api/livres
+Content-Type: application/json
+
+{
+  "title": "Dune",
+  "author": "Frank Herbert",
+  "description": "Une épopée spatiale majeure",
+  "category_id": 1,
+  "impressions": 3000000,
+  "etoiles": 5,
+  "chemin": "xxx.pdf"
+}</code></pre>
+<p><strong>Vue d’ensemble</strong></p>
+<ul>
+<li>
+<p><strong>Méthode</strong> : <code>POST</code></p>
+</li>
+<li>
+<p><strong>URL</strong> : <code>http://apibook.wuaze.com/api/livres</code></p>
+</li>
+<li>
+<p><strong>Body</strong> : JSON (voir format ci-dessus)</p>
+</li>
+<li>
+<p><strong>Authentification</strong> : Non requise</p>
+</li>
+<li>
+<p><strong>Sanitization</strong> : Automatique (htmlspecialchars + strip_tags)</p>
+</li>
+</ul>
+<p><strong>Champs obligatoires</strong></p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type</th>
+<th>Format</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>string</td>
+<td>Max 255 caractères</td>
+<td>“Dune”</td>
+</tr>
+<tr>
+<td><code>author</code></td>
+<td>string</td>
+<td>Max 150 caractères</td>
+<td>“Frank Herbert”</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>Texte libre</td>
+<td>“Une épopée spatiale”</td>
+</tr>
+<tr>
+<td><code>impressions</code></td>
+<td>integer</td>
+<td>Nombre positif</td>
+<td>3000000</td>
+</tr>
+<tr>
+<td><code>etoiles</code></td>
+<td>integer</td>
+<td>Entre 0 et 5</td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>chemin</code></td>
+<td>string</td>
+<td>Texte libre</td>
+<td>“Une épopée spatiale”</td>
+</tr>
+<tr>
+<td><code>category_id</code></td>
+<td>integer</td>
+<td>ID existant dans categories</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Réponse (201 Created)</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Création effectuée"</span>
+</span>}</code></pre>
+<p><strong>Erreur - Création échouée</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Création non effectuée"</span>
+</span>}</code></pre>
+<p><strong>Erreur - Endpoint incorrect</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Endpoint incorrect."</span>
+</span>}</code></pre>
+<hr>
+<h4 id="header-4️⃣-modifier-un-livre-existant">4️⃣ Modifier un livre existant <a class="permalink" href="#header-4️⃣-modifier-un-livre-existant" aria-hidden="true">¶</a></h4>
+<p><strong>Requête</strong></p>
+<pre><code class="language-http">PUT /api/livres/1
+Content-Type: application/json
+
+{
+  "title": "Dune - Édition révisée",
+  "author": "Frank Herbert",
+  "description": "Une épopée spatiale majeure - Version mises à jour",
+  "impressions": 3500000,
+  "etoiles": 5,
+  "chemin": "xxxx.pdf"
+}</code></pre>
+<p><strong>Vue d’ensemble</strong></p>
+<ul>
+<li>
+<p><strong>Méthode</strong> : <code>PUT</code></p>
+</li>
+<li>
+<p><strong>URL</strong> : <code>http://apibook.wuaze.com/api/livres/1</code></p>
+</li>
+<li>
+<p><strong>Paramètres</strong> :</p>
+<ul>
+<li><code>id</code> (entier, obligatoire) : Identifiant du livre</li>
+</ul>
+</li>
+<li>
+<p><strong>Body</strong> : JSON avec champs à modifier</p>
+</li>
+<li>
+<p><strong>Authentification</strong> : Non requise</p>
+</li>
+</ul>
+<p><strong>Champs modifiables</strong></p>
+<pre><code class="language-php"><span class="hljs-variable">$livre</span>-&gt;title
+<span class="hljs-variable">$livre</span>-&gt;author
+<span class="hljs-variable">$livre</span>-&gt;description
+<span class="hljs-variable">$livre</span>-&gt;impressions
+<span class="hljs-variable">$livre</span>-&gt;etoiles
+<span class="hljs-variable">$livre</span>-&gt;chemin
+<span class="hljs-variable">$livre</span>-&gt;category_id  <span class="hljs-comment">// Peut être omis si non fourni</span></code></pre>
+<p><strong>Réponse (200 OK)</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Modification effectuée"</span>
+</span>}</code></pre>
+<p><strong>Erreur - Modification échouée</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Modification non effectuée"</span>
+</span>}</code></pre>
+<p><strong>Erreur - ID manquant</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Endpoint incorrect."</span>
+</span>}</code></pre>
+<hr>
+<h4 id="header-5️⃣-supprimer-un-livre">5️⃣ Supprimer un livre <a class="permalink" href="#header-5️⃣-supprimer-un-livre" aria-hidden="true">¶</a></h4>
+<p><strong>Requête</strong></p>
+<pre><code class="language-http">DELETE /api/livres/1</code></pre>
+<p><strong>Vue d’ensemble</strong></p>
+<ul>
+<li>
+<p><strong>Méthode</strong> : <code>DELETE</code></p>
+</li>
+<li>
+<p><strong>URL</strong> : <code>http://apibook.wuaze.com/api/livres/1</code></p>
+</li>
+<li>
+<p><strong>Paramètres</strong> :</p>
+<ul>
+<li><code>id</code> (entier, obligatoire) : Identifiant du livre</li>
+</ul>
+</li>
+<li>
+<p><strong>Authentification</strong> : Non requise</p>
+</li>
+</ul>
+<p><strong>Réponse (200 OK)</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Suppression effectuée."</span>
+</span>}</code></pre>
+<p><strong>Erreur - Suppression échouée</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Suppression échouée."</span>
+</span>}</code></pre>
+<p><strong>Erreur - ID manquant</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Endpoint incorrect."</span>
+</span>}</code></pre>
+<hr>
+<h3 id="header-🏷️-catégories">🏷️ CATÉGORIES <a class="permalink" href="#header-🏷️-catégories" aria-hidden="true">¶</a></h3>
+<h4 id="header-1️⃣-récupérer-toutes-les-catégories">1️⃣ Récupérer toutes les catégories <a class="permalink" href="#header-1️⃣-récupérer-toutes-les-catégories" aria-hidden="true">¶</a></h4>
+<p><strong>Requête</strong></p>
+<pre><code class="language-http">GET /api/categories</code></pre>
+<p><strong>Vue d’ensemble</strong></p>
+<ul>
+<li>
+<p><strong>Méthode</strong> : <code>GET</code></p>
+</li>
+<li>
+<p><strong>URL</strong> : <code>http://apibook.wuaze.com/api/categories</code></p>
+</li>
+<li>
+<p><strong>Paramètres</strong> : Aucun</p>
+</li>
+<li>
+<p><strong>Authentification</strong> : Non requise</p>
+</li>
+</ul>
+<p><strong>Réponse (200 OK)</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">category_name</span>": <span class="hljs-value"><span class="hljs-string">"Science-Fiction"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Romans de science-fiction et dystopie"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">category_name</span>": <span class="hljs-value"><span class="hljs-string">"Romance"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Histoires d'amour et relations"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">category_name</span>": <span class="hljs-value"><span class="hljs-string">"Mystère"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Thrillers et romans policiers"</span>
+    </span>}
+  ]
+</span>}</code></pre>
+<p><strong>Cas d’erreur (aucune catégorie)</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Aucune catégorie pour le moment."</span>
+</span>}</code></pre>
+<hr>
+<h4 id="header-2️⃣-récupérer-les-livres-d’une-catégorie">2️⃣ Récupérer les livres d’une catégorie <a class="permalink" href="#header-2️⃣-récupérer-les-livres-d’une-catégorie" aria-hidden="true">¶</a></h4>
+<p><strong>Requête</strong></p>
+<pre><code class="language-http">GET /api/categories/1</code></pre>
+<p><strong>Vue d’ensemble</strong></p>
+<ul>
+<li>
+<p><strong>Méthode</strong> : <code>GET</code></p>
+</li>
+<li>
+<p><strong>URL</strong> : <code>http://apibook.wuaze.com/api/categories/1</code></p>
+</li>
+<li>
+<p><strong>Paramètres</strong> :</p>
+<ul>
+<li><code>id</code> (entier, obligatoire) : Identifiant de la catégorie</li>
+</ul>
+</li>
+<li>
+<p><strong>Authentification</strong> : Non requise</p>
+</li>
+</ul>
+<p><strong>Réponse (200 OK)</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"1984"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"George Orwell"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Roman dystopique"</span></span>,
+      "<span class="hljs-attribute">category_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">category_name</span>": <span class="hljs-value"><span class="hljs-string">"Science-Fiction"</span></span>,
+      "<span class="hljs-attribute">impressions</span>": <span class="hljs-value"><span class="hljs-number">2000000</span></span>,
+      "<span class="hljs-attribute">etoiles</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+      "<span class="hljs-attribute">chemin</span>": <span class="hljs-value"><span class="hljs-string">"xxx.pdf"</span></span>,
+      "<span class="hljs-attribute">create_at</span>": <span class="hljs-value"><span class="hljs-string">"2024-01-10 08:00:00"</span></span>,
+      "<span class="hljs-attribute">update_at</span>": <span class="hljs-value"><span class="hljs-string">"2024-01-15 09:30:00"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Fondation"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"Isaac Asimov"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Cycle de science-fiction"</span></span>,
+      "<span class="hljs-attribute">category_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">category_name</span>": <span class="hljs-value"><span class="hljs-string">"Science-Fiction"</span></span>,
+      "<span class="hljs-attribute">impressions</span>": <span class="hljs-value"><span class="hljs-number">1500000</span></span>,
+      "<span class="hljs-attribute">etoiles</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+      "<span class="hljs-attribute">chemin</span>": <span class="hljs-value"><span class="hljs-string">"xxx.pdf"</span></span>,
+      "<span class="hljs-attribute">create_at</span>": <span class="hljs-value"><span class="hljs-string">"2024-01-12 14:20:00"</span></span>,
+      "<span class="hljs-attribute">update_at</span>": <span class="hljs-value"><span class="hljs-string">"2024-01-16 10:05:00"</span>
+    </span>}
+  ]
+</span>}</code></pre>
+<p><strong>Erreur - Catégorie sans livres</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Aucun livres dans cette catégorie."</span>
+</span>}</code></pre>
+<p><strong>Erreur - ID invalide</strong></p>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Endpoint incorrect."</span>
+</span>}</code></pre>
+<hr>
+<h2 id="header-🧪-exemples-d’utilisation">🧪 Exemples d’utilisation <a class="permalink" href="#header-🧪-exemples-d’utilisation" aria-hidden="true">¶</a></h2>
+<h3 id="header-avec-postman">Avec Postman <a class="permalink" href="#header-avec-postman" aria-hidden="true">¶</a></h3>
+<h4 id="header-exemple-1-créer-un-livre">Exemple 1 : Créer un livre <a class="permalink" href="#header-exemple-1-créer-un-livre" aria-hidden="true">¶</a></h4>
+<ol>
+<li>
+<p><strong>Créer une nouvelle requête</strong></p>
+<ul>
+<li>Cliquer sur <code>+</code> → New request</li>
+<li>Méthode : <code>POST</code></li>
+<li>URL : <code>http://apibook.wuaze.com/api/livres</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Configurer le Body</strong></p>
+<ul>
+<li>Cliquer sur l’onglet <code>Body</code></li>
+<li>Sélectionner <code>raw</code></li>
+<li>Sélectionner le format <code>JSON</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Ajouter les données</strong></p>
+</li>
+</ol>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Neuromancien"</span></span>,
+  "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"William Gibson"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Le premier roman cyberpunk"</span></span>,
+  "<span class="hljs-attribute">category_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">impressions</span>": <span class="hljs-value"><span class="hljs-number">1000000</span></span>,
+  "<span class="hljs-attribute">etoiles</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+  "<span class="hljs-attribute">chemin</span>": <span class="hljs-value"><span class="hljs-string">"xxx.pdf"</span>
+</span>}</code></pre>
+<ol start="4">
+<li><strong>Envoyer</strong>
+<ul>
+<li>Cliquer sur <code>Send</code></li>
+<li>Vérifier la réponse : <code>&quot;message&quot;: &quot;Création effectuée&quot;</code></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="header-exemple-2-récupérer-tous-les-livres">Exemple 2 : Récupérer tous les livres <a class="permalink" href="#header-exemple-2-récupérer-tous-les-livres" aria-hidden="true">¶</a></h4>
+<ol>
+<li>
+<p><strong>Créer une requête</strong></p>
+<ul>
+<li>Méthode : <code>GET</code></li>
+<li>URL : <code>http://apibook.wuaze.com/api/livres</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Envoyer</strong></p>
+<ul>
+<li>Cliquer sur <code>Send</code></li>
+<li>Observer la liste des livres en réponse</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="header-exemple-3-modifier-un-livre">Exemple 3 : Modifier un livre <a class="permalink" href="#header-exemple-3-modifier-un-livre" aria-hidden="true">¶</a></h4>
+<ol>
+<li>
+<p><strong>Créer une requête</strong></p>
+<ul>
+<li>Méthode : <code>PUT</code></li>
+<li>URL : <code>http://apibook.wuaze.com/api/livres/1</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Body (JSON)</strong></p>
+</li>
+</ol>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Neuromancien - Édition 2024"</span></span>,
+  "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"William Gibson"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Le premier roman cyberpunk - Édition anniversaire"</span></span>,
+  "<span class="hljs-attribute">impressions</span>": <span class="hljs-value"><span class="hljs-number">1500000</span></span>,
+  "<span class="hljs-attribute">etoiles</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+  "<span class="hljs-attribute">chemin</span>": <span class="hljs-value"><span class="hljs-string">"xxx.pdf"</span></span>,
+}</code></pre>
+<ol start="3">
+<li><strong>Envoyer et vérifier</strong></li>
+</ol>
+<hr>
+<h4 id="header-exemple-4-supprimer-un-livre">Exemple 4 : Supprimer un livre <a class="permalink" href="#header-exemple-4-supprimer-un-livre" aria-hidden="true">¶</a></h4>
+<ol>
+<li>
+<p><strong>Créer une requête</strong></p>
+<ul>
+<li>Méthode : <code>DELETE</code></li>
+<li>URL : <code>http://apibook.wuaze.com/api/livres/5</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Envoyer</strong></p>
+</li>
+</ol>
+<hr>
+<h3 id="header-avec-curl-(terminal)">Avec cURL (Terminal) <a class="permalink" href="#header-avec-curl-(terminal)" aria-hidden="true">¶</a></h3>
+<h4 id="header-récupérer-tous-les-livres">Récupérer tous les livres <a class="permalink" href="#header-récupérer-tous-les-livres" aria-hidden="true">¶</a></h4>
+<pre><code class="language-bash">curl -X GET <span class="hljs-string">"http://apibook.wuaze.com/api/livres"</span> \
+  -H <span class="hljs-string">"Content-Type: application/json"</span></code></pre>
+<h4 id="header-créer-un-livre">Créer un livre <a class="permalink" href="#header-créer-un-livre" aria-hidden="true">¶</a></h4>
+<pre><code class="language-bash">curl -X POST <span class="hljs-string">"http://apibook.wuaze.com/api/livres"</span> \
+  -H <span class="hljs-string">"Content-Type: application/json"</span> \
+  <span class="hljs-operator">-d</span> <span class="hljs-string">'{
+    "title": "Cryptonomicon",
+    "author": "Neal Stephenson",
+    "description": "Thriller cryptographique",
+    "category_id": 1,
+    "impressions": 500000,
+    "etoiles": 4,
+    "chemin": "xxx.pdf",
+  }'</span></code></pre>
+<h4 id="header-modifier-un-livre">Modifier un livre <a class="permalink" href="#header-modifier-un-livre" aria-hidden="true">¶</a></h4>
+<pre><code class="language-bash">curl -X PUT <span class="hljs-string">"http://apibook.wuaze.com/api/livres/1"</span> \
+  -H <span class="hljs-string">"Content-Type: application/json"</span> \
+  <span class="hljs-operator">-d</span> <span class="hljs-string">'{
+    "title": "1984 - Édition annotée",
+    "author": "George Orwell",
+    "description": "Roman dystopique avec annotations",
+    "impressions": 2500000,
+    "etoiles": 5,
+    "chemin": "xxx.pdf"
+  }'</span></code></pre>
+<h4 id="header-supprimer-un-livre">Supprimer un livre <a class="permalink" href="#header-supprimer-un-livre" aria-hidden="true">¶</a></h4>
+<pre><code class="language-bash">curl -X DELETE <span class="hljs-string">"http://apibook.wuaze.com/api/livres/5"</span> \
+  -H <span class="hljs-string">"Content-Type: application/json"</span></code></pre>
+<hr>
+<h2 id="header-⚠️-gestion-des-erreurs">⚠️ Gestion des erreurs <a class="permalink" href="#header-⚠️-gestion-des-erreurs" aria-hidden="true">¶</a></h2>
+<h3 id="header-codes-http-attendus">Codes HTTP attendus <a class="permalink" href="#header-codes-http-attendus" aria-hidden="true">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Signification</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>200</strong></td>
+<td>OK - Requête réussie</td>
+<td>GET, PUT, DELETE réussis</td>
+</tr>
+<tr>
+<td><strong>201</strong></td>
+<td>Created - Ressource créée</td>
+<td>POST réussi</td>
+</tr>
+<tr>
+<td><strong>400</strong></td>
+<td>Bad Request - Requête invalide</td>
+<td>ID non numérique</td>
+</tr>
+<tr>
+<td><strong>404</strong></td>
+<td>Not Found - Ressource non trouvée</td>
+<td>Livre inexistant</td>
+</tr>
+<tr>
+<td><strong>405</strong></td>
+<td>Method Not Allowed</td>
+<td>Méthode HTTP non supportée</td>
+</tr>
+<tr>
+<td><strong>500</strong></td>
+<td>Server Error - Erreur serveur</td>
+<td>Erreur de base de données</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-erreurs-courantes">Erreurs courantes <a class="permalink" href="#header-erreurs-courantes" aria-hidden="true">¶</a></h3>
+<h4 id="header-❌-endpoint-incorrect">❌ Endpoint incorrect <a class="permalink" href="#header-❌-endpoint-incorrect" aria-hidden="true">¶</a></h4>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Endpoint incorrect."</span>
+</span>}</code></pre>
+<p><strong>Cause</strong> : Paramètre invalide ou manquant<br>
+<strong>Solution</strong> : Vérifier l’URL et les paramètres</p>
+<hr>
+<h4 id="header-❌-livre-non-trouvé">❌ Livre non trouvé <a class="permalink" href="#header-❌-livre-non-trouvé" aria-hidden="true">¶</a></h4>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Nous n'avons pas trouvé ce livre."</span>
+</span>}</code></pre>
+<p><strong>Cause</strong> : L’ID du livre n’existe pas<br>
+<strong>Solution</strong> : Vérifier l’ID via GET /livres</p>
+<hr>
+<h4 id="header-❌-création-modification-échouée">❌ Création/Modification échouée <a class="permalink" href="#header-❌-création-modification-échouée" aria-hidden="true">¶</a></h4>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Création non effectuée"</span>
+</span>}</code></pre>
+<p><strong>Cause</strong> : Données invalides ou erreur base de données<br>
+<strong>Solution</strong> :</p>
+<ul>
+<li>
+<p>Vérifier le format JSON</p>
+</li>
+<li>
+<p>Vérifier que la catégorie existe</p>
+</li>
+<li>
+<p>Consulter les logs d’erreur PHP</p>
+</li>
+</ul>
+<hr>
+<h4 id="header-❌-méthode-non-autorisée">❌ Méthode non autorisée <a class="permalink" href="#header-❌-méthode-non-autorisée" aria-hidden="true">¶</a></h4>
+<pre><code class="language-json">{
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Methode non autorisée."</span>
+</span>}</code></pre>
+<p><strong>Code HTTP</strong> : 405<br>
+<strong>Cause</strong> : Méthode HTTP non supportée<br>
+<strong>Solution</strong> : Utiliser GET, POST, PUT, ou DELETE</p>
+<hr>
+<h2 id="header-🔒-sécurité">🔒 Sécurité <a class="permalink" href="#header-🔒-sécurité" aria-hidden="true">¶</a></h2>
+<h3 id="header-mesures-implémentées">Mesures implémentées <a class="permalink" href="#header-mesures-implémentées" aria-hidden="true">¶</a></h3>
+<p>✅ <strong>Requêtes préparées (PDO)</strong></p>
+<ul>
+<li>
+<p>Prévient les injections SQL</p>
+</li>
+<li>
+<p>Binding des paramètres</p>
+</li>
+</ul>
+<p>✅ <strong>Sanitization des données</strong></p>
+<ul>
+<li>
+<p><code>htmlspecialchars()</code> : Échappe les caractères HTML</p>
+</li>
+<li>
+<p><code>strip_tags()</code> : Supprime les balises HTML</p>
+</li>
+<li>
+<p>Appliqué à la création et modification de livres</p>
+</li>
+</ul>
+<p>✅ <strong>Validation des ID</strong></p>
+<ul>
+<li>
+<p><code>ctype_digit()</code> : Vérifie que l’ID est numérique</p>
+</li>
+<li>
+<p>Rejette les ID invalides</p>
+</li>
+</ul>
+<p>✅ <strong>Headers CORS</strong></p>
+<ul>
+<li>
+<p>Accepte les requêtes cross-origin</p>
+</li>
+<li>
+<p>Permet POST, PUT, GET, OPTIONS</p>
+</li>
+</ul>
+<h3 id="header-⚠️-points-de-sécurité-à-améliorer">⚠️ Points de sécurité à améliorer <a class="permalink" href="#header-⚠️-points-de-sécurité-à-améliorer" aria-hidden="true">¶</a></h3>
+<p>🔴 <strong>CORS trop permissif</strong></p>
+<ul>
+<li>
+<p><code>Access-Control-Allow-Origin: *</code> accepte toutes les sources</p>
+</li>
+<li>
+<p>À restreindre en production</p>
+</li>
+</ul>
+<p>🔴 <strong>Pas d’authentification</strong></p>
+<ul>
+<li>
+<p>N’importe qui peut modifier/supprimer des livres</p>
+</li>
+<li>
+<p>À ajouter : JWT, API Key, ou session</p>
+</li>
+</ul>
+<p>🔴 <strong>Pas de validation côté serveur</strong></p>
+<ul>
+<li>
+<p>Pas de vérification de longueur pour <code>title</code>, <code>author</code></p>
+</li>
+<li>
+<p>Pas de limites de débit (rate limiting)</p>
+</li>
+<li>
+<p>Pas de gestion des fichiers volumineux</p>
+</li>
+</ul>
+<p>🔴 <strong>Mots de passe en clair</strong></p>
+<ul>
+<li>
+<p>Credentials MySQL stockés dans le code source</p>
+</li>
+<li>
+<p>À utiliser avec variables d’environnement</p>
+</li>
+</ul>
+<hr>
+<h2 id="header-📁-architecture-du-projet">📁 Architecture du projet <a class="permalink" href="#header-📁-architecture-du-projet" aria-hidden="true">¶</a></h2>
+<pre><code>apiLivre/
+├── 📄 index.php                 <span class="hljs-comment"># Routeur principal - Point d'entrée</span>
+├── 📄 README_Books_API.md       <span class="hljs-comment"># Cette documentation</span>
+├──
+├── 📁 /apiVue                   <span class="hljs-comment"># Fichiers de traitement des requêtes</span>
+│  ├── <span class="hljs-built_in">create</span>.php               <span class="hljs-comment"># POST /livres</span>
+│  ├── getAll.php               <span class="hljs-comment"># GET /livres</span>
+│  ├── getOne.php               <span class="hljs-comment"># GET /livres/{id}</span>
+│  ├── update.php               <span class="hljs-comment"># PUT /livres/{id}</span>
+│  ├── <span class="hljs-built_in">delete</span>.php               <span class="hljs-comment"># DELETE /livres/{id}</span>
+│  ├── getCategories.php        <span class="hljs-comment"># GET /categories</span>
+│  └── getLivreCategorie.php    <span class="hljs-comment"># GET /categories/{id}</span>
+│
+├── 📁 /core                     <span class="hljs-comment"># Logique métier (Classes)</span>
+│  ├── initialize.php           <span class="hljs-comment"># Initialisation des dépendances</span>
+│  ├── livres.php               <span class="hljs-comment"># Classe Livres (CRUD)</span>
+│  └── categories.php           <span class="hljs-comment"># Classe Categories (lecture)</span>
+│
+└── 📁 /database                 <span class="hljs-comment"># Connexion base de données</span>
+   └── database.php             <span class="hljs-comment"># Configuration PDO</span></code></pre>
+<h3 id="header-flux-de-requête">Flux de requête <a class="permalink" href="#header-flux-de-requête" aria-hidden="true">¶</a></h3>
+<pre><code>Requê<span class="hljs-keyword">te</span> HTTP
+    ↓
+[index.php] - Route <span class="hljs-keyword">la</span> requê<span class="hljs-keyword">te</span>
+    ↓
+[core/initialize.php] - Charge les classes
+    ↓
+[core/livres.php <span class="hljs-keyword">ou</span> core/categories.php] - Logique <span class="hljs-keyword">m</span>étier
+    ↓
+[database/database.php] - <span class="hljs-keyword">Ex</span>écute <span class="hljs-keyword">la</span> requê<span class="hljs-keyword">te</span> SQL
+    ↓
+[apiVue/...php] - Formate <span class="hljs-keyword">la</span> réponse JSON
+    ↓
+Réponse HTTP (JSON)</code></pre>
+<hr>
+<h2 id="header-📊-structure-des-tables">📊 Structure des tables <a class="permalink" href="#header-📊-structure-des-tables" aria-hidden="true">¶</a></h2>
+<h3 id="header-table-">Table <code>categories</code> <a class="permalink" href="#header-table-" aria-hidden="true">¶</a></h3>
+<pre><code class="language-sql"><span class="hljs-operator"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> categories (
+    <span class="hljs-keyword">id</span> <span class="hljs-built_in">INT</span> AUTO_INCREMENT PRIMARY <span class="hljs-keyword">KEY</span>,
+    category_name <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">UNIQUE</span>,
+    description <span class="hljs-built_in">TEXT</span>,
+    created_at <span class="hljs-keyword">TIMESTAMP</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span>
+);</span></code></pre>
+<table>
+<thead>
+<tr>
+<th>Colonne</th>
+<th>Type</th>
+<th>Contraintes</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>INT</td>
+<td>PRIMARY KEY, AUTO_INCREMENT</td>
+<td>Identifiant unique</td>
+</tr>
+<tr>
+<td><code>category_name</code></td>
+<td>VARCHAR(100)</td>
+<td>NOT NULL, UNIQUE</td>
+<td>Nom de la catégorie (unique)</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td>-</td>
+<td>Description optionnelle</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>TIMESTAMP</td>
+<td>DEFAULT CURRENT_TIMESTAMP</td>
+<td>Timestamp de création</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="header-table--1">Table <code>livres</code> <a class="permalink" href="#header-table--1" aria-hidden="true">¶</a></h3>
+<pre><code class="language-sql"><span class="hljs-operator"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> livres (
+    <span class="hljs-keyword">id</span> <span class="hljs-built_in">INT</span> AUTO_INCREMENT PRIMARY <span class="hljs-keyword">KEY</span>,
+    title <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    description <span class="hljs-built_in">TEXT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    author <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">150</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    category_id <span class="hljs-built_in">INT</span>,
+    impressions <span class="hljs-built_in">INT</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span>,
+    etoiles <span class="hljs-built_in">INT</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span> <span class="hljs-keyword">CHECK</span> (etoiles <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">0</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">5</span>),
+    create_at <span class="hljs-keyword">TIMESTAMP</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span>,
+    update_at <span class="hljs-keyword">TIMESTAMP</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span>,
+    FOREIGN <span class="hljs-keyword">KEY</span> (category_id) <span class="hljs-keyword">REFERENCES</span> categories(<span class="hljs-keyword">id</span>) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">SET</span> <span class="hljs-literal">NULL</span>
+);</span></code></pre>
+<table>
+<thead>
+<tr>
+<th>Colonne</th>
+<th>Type</th>
+<th>Contraintes</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>INT</td>
+<td>PRIMARY KEY, AUTO_INCREMENT</td>
+<td>Identifiant unique</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>VARCHAR(255)</td>
+<td>NOT NULL</td>
+<td>Titre du livre</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>TEXT</td>
+<td>NOT NULL</td>
+<td>Description complète</td>
+</tr>
+<tr>
+<td><code>author</code></td>
+<td>VARCHAR(150)</td>
+<td>NOT NULL</td>
+<td>Nom de l’auteur</td>
+</tr>
+<tr>
+<td><code>category_id</code></td>
+<td>INT</td>
+<td>FOREIGN KEY</td>
+<td>Lien vers categories (optionnel)</td>
+</tr>
+<tr>
+<td><code>impressions</code></td>
+<td>INT</td>
+<td>DEFAULT 0</td>
+<td>Nombre d’impressions</td>
+</tr>
+<tr>
+<td><code>etoiles</code></td>
+<td>INT</td>
+<td>DEFAULT 0, CHECK (0-5)</td>
+<td>Note entre 0 et 5</td>
+</tr>
+<tr>
+<td><code>chemin</code></td>
+<td>TEXT</td>
+<td>NOT NULL</td>
+<td>chemin complet</td>
+</tr>
+<tr>
+<td><code>create_at</code></td>
+<td>TIMESTAMP</td>
+<td>AUTO</td>
+<td>Timestamp de création</td>
+</tr>
+<tr>
+<td><code>update_at</code></td>
+<td>TIMESTAMP</td>
+<td>AUTO</td>
+<td>Timestamp de dernière modification</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="header-🎯-améliorations-futures">🎯 Améliorations futures <a class="permalink" href="#header-🎯-améliorations-futures" aria-hidden="true">¶</a></h2>
+<h3 id="header-🔐-sécurité">🔐 Sécurité <a class="permalink" href="#header-🔐-sécurité" aria-hidden="true">¶</a></h3>
+<ul>
+<li>
+<p><input type="checkbox" id="checkbox0"><label for="checkbox0">Authentification avec JWT (JSON Web Token)</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox1"><label for="checkbox1">Gestion des API Keys</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox2"><label for="checkbox2">Restreindre CORS à des domaines spécifiques</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox3"><label for="checkbox3">Rate limiting (limitation du nombre de requêtes)</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox4"><label for="checkbox4">Validation strict des données côté serveur</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox5"><label for="checkbox5">Hachage des identifiants sensibles</label></p>
+</li>
+</ul>
+<h3 id="header-🚀-fonctionnalités">🚀 Fonctionnalités <a class="permalink" href="#header-🚀-fonctionnalités" aria-hidden="true">¶</a></h3>
+<ul>
+<li>
+<p><input type="checkbox" id="checkbox6"><label for="checkbox6">Pagination des résultats (</label><code>?page=1&amp;limit=10</code>)</p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox7"><label for="checkbox7">Tri configurable (</label><code>?sort=title&amp;order=asc</code>)</p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox8"><label for="checkbox8">Filtrage avancé (</label><code>?author=Tolkien&amp;minRating=4</code>)</p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox9"><label for="checkbox9">Recherche textuelle</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox10"><label for="checkbox10">Système de permissions (admin, éditeur, lecteur)</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox11"><label for="checkbox11">Gestion des avatars/covers de livres</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox12"><label for="checkbox12">Commentaires et critiques</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox13"><label for="checkbox13">Système de favoris</label></p>
+</li>
+</ul>
+<h3 id="header-🛠️-code">🛠️ Code <a class="permalink" href="#header-🛠️-code" aria-hidden="true">¶</a></h3>
+<ul>
+<li>
+<p><input type="checkbox" id="checkbox14"><label for="checkbox14">Refactoring en MVC ou architecture modulaire</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox15"><label for="checkbox15">Utiliser un framework (Laravel, Slim, Symfony)</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox16"><label for="checkbox16">Tests unitaires et d’intégration</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox17"><label for="checkbox17">Logging des erreurs (Monolog)</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox18"><label for="checkbox18">Documentation API (Swagger/OpenAPI)</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox19"><label for="checkbox19">Cache Redis pour les requêtes fréquentes</label></p>
+</li>
+</ul>
+<h3 id="header-📱-performance">📱 Performance <a class="permalink" href="#header-📱-performance" aria-hidden="true">¶</a></h3>
+<ul>
+<li>
+<p><input type="checkbox" id="checkbox20"><label for="checkbox20">Compression GZIP</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox21"><label for="checkbox21">Optimisation des requêtes SQL (index)</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox22"><label for="checkbox22">Pagination obligatoire pour grandes listes</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox23"><label for="checkbox23">CDN pour les fichiers statiques</label></p>
+</li>
+</ul>
+<h3 id="header-📦-déploiement">📦 Déploiement <a class="permalink" href="#header-📦-déploiement" aria-hidden="true">¶</a></h3>
+<ul>
+<li>
+<p><input type="checkbox" id="checkbox24"><label for="checkbox24">Docker/Docker Compose</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox25"><label for="checkbox25">Variables d’environnement (.env)</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox26"><label for="checkbox26">Tests automatisés (CI/CD)</label></p>
+</li>
+<li>
+<p><input type="checkbox" id="checkbox27"><label for="checkbox27">Documentation déploiement</label></p>
+</li>
+</ul>
+<hr>
+<h2 id="header-👨‍💻-auteur">👨‍💻 Auteur <a class="permalink" href="#header-👨‍💻-auteur" aria-hidden="true">¶</a></h2>
+<p>Projet réalisé dans le cadre de l’apprentissage des API REST avec PHP et MySQL.</p>
+<p><strong>Objectifs d’apprentissage atteints</strong> :</p>
+<ul>
+<li>
+<p>✅ Architecture REST</p>
+</li>
+<li>
+<p>✅ Requêtes préparées (PDO)</p>
+</li>
+<li>
+<p>✅ Gestion des requêtes HTTP</p>
+</li>
+<li>
+<p>✅ Routage d’API</p>
+</li>
+<li>
+<p>✅ Sanitization des données</p>
+</li>
+<li>
+<p>✅ Gestion des erreurs basique</p>
+</li>
+</ul>
+<hr>
+<h2 id="header-📞-support">📞 Support <a class="permalink" href="#header-📞-support" aria-hidden="true">¶</a></h2>
+<p>Pour des questions ou problèmes :</p>
+<ol>
+<li>Vérifier la configuration <a href="database/database.php">database/database.php</a></li>
+<li>Consulter les logs Apache/PHP</li>
+<li>Utiliser Postman pour tester les endpoints</li>
+<li>Lire la section <a href="#-gestion-des-erreurs">Gestion des erreurs</a></li>
+</ol>
+<hr>
+<p><strong>Dernière mise à jour</strong> : février 2026<br>
+<strong>Version</strong> : 1.0</p>
+</div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 28 Feb 2026</p><script>/* eslint-env browser */
+/* eslint quotes: [2, "single"] */
+'use strict';
+
+/*
+  Determine if a string ends with another string.
+*/
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+/*
+  Get a list of direct child elements by class name.
+*/
+function childrenByClass(element, name) {
+  var filtered = [];
+
+  for (var i = 0; i < element.children.length; i++) {
+    var child = element.children[i];
+    var classNames = child.className.split(' ');
+    if (classNames.indexOf(name) !== -1) {
+      filtered.push(child);
+    }
+  }
+
+  return filtered;
+}
+
+/*
+  Get an array [width, height] of the window.
+*/
+function getWindowDimensions() {
+  var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.body,
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+  return [x, y];
+}
+
+/*
+  Collapse or show a request/response example.
+*/
+function toggleCollapseButton(event) {
+    var button = event.target.parentNode;
+    var content = button.parentNode.nextSibling;
+    var inner = content.children[0];
+
+    if (button.className.indexOf('collapse-button') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        // Currently showing, so let's hide it
+        button.className = 'collapse-button';
+        content.style.maxHeight = '0px';
+    } else {
+        // Currently hidden, so let's show it
+        button.className = 'collapse-button show';
+        content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+function toggleTabButton(event) {
+    var i, index;
+    var button = event.target;
+
+    // Get index of the current button.
+    var buttons = childrenByClass(button.parentNode, 'tab-button');
+    for (i = 0; i < buttons.length; i++) {
+        if (buttons[i] === button) {
+            index = i;
+            button.className = 'tab-button active';
+        } else {
+            buttons[i].className = 'tab-button';
+        }
+    }
+
+    // Hide other tabs and show this one.
+    var tabs = childrenByClass(button.parentNode.parentNode, 'tab');
+    for (i = 0; i < tabs.length; i++) {
+        if (i === index) {
+            tabs[i].style.display = 'block';
+        } else {
+            tabs[i].style.display = 'none';
+        }
+    }
+}
+
+/*
+  Collapse or show a navigation menu. It will not be hidden unless it
+  is currently selected or `force` has been passed.
+*/
+function toggleCollapseNav(event, force) {
+    var heading = event.target.parentNode;
+    var content = heading.nextSibling;
+    var inner = content.children[0];
+
+    if (heading.className.indexOf('heading') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+      // Currently showing, so let's hide it, but only if this nav item
+      // is already selected. This prevents newly selected items from
+      // collapsing in an annoying fashion.
+      if (force || window.location.hash && endsWith(event.target.href, window.location.hash)) {
+        content.style.maxHeight = '0px';
+      }
+    } else {
+      // Currently hidden, so let's show it
+      content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+/*
+  Refresh the page after a live update from the server. This only
+  works in live preview mode (using the `--server` parameter).
+*/
+function refresh(body) {
+    document.querySelector('body').className = 'preload';
+    document.body.innerHTML = body;
+
+    // Re-initialize the page
+    init();
+    autoCollapse();
+
+    document.querySelector('body').className = '';
+}
+
+/*
+  Determine which navigation items should be auto-collapsed to show as many
+  as possible on the screen, based on the current window height. This also
+  collapses them.
+*/
+function autoCollapse() {
+  var windowHeight = getWindowDimensions()[1];
+  var itemsHeight = 64; /* Account for some padding */
+  var itemsArray = Array.prototype.slice.call(
+    document.querySelectorAll('nav .resource-group .heading'));
+
+  // Get the total height of the navigation items
+  itemsArray.forEach(function (item) {
+    itemsHeight += item.parentNode.offsetHeight;
+  });
+
+  // Should we auto-collapse any nav items? Try to find the smallest item
+  // that can be collapsed to show all items on the screen. If not possible,
+  // then collapse the largest item and do it again. First, sort the items
+  // by height from smallest to largest.
+  var sortedItems = itemsArray.sort(function (a, b) {
+    return a.parentNode.offsetHeight - b.parentNode.offsetHeight;
+  });
+
+  while (sortedItems.length && itemsHeight > windowHeight) {
+    for (var i = 0; i < sortedItems.length; i++) {
+      // Will collapsing this item help?
+      var itemHeight = sortedItems[i].nextSibling.offsetHeight;
+      if ((itemsHeight - itemHeight <= windowHeight) || i === sortedItems.length - 1) {
+        // It will, so let's collapse it, remove its content height from
+        // our total and then remove it from our list of candidates
+        // that can be collapsed.
+        itemsHeight -= itemHeight;
+        toggleCollapseNav({target: sortedItems[i].children[0]}, true);
+        sortedItems.splice(i, 1);
+        break;
+      }
+    }
+  }
+}
+
+/*
+  Initialize the interactive functionality of the page.
+*/
+function init() {
+    var i, j;
+
+    // Make collapse buttons clickable
+    var buttons = document.querySelectorAll('.collapse-button');
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = toggleCollapseButton;
+
+        // Show by default? Then toggle now.
+        if (buttons[i].className.indexOf('show') !== -1) {
+            toggleCollapseButton({target: buttons[i].children[0]});
+        }
+    }
+
+    var responseCodes = document.querySelectorAll('.example-names');
+    for (i = 0; i < responseCodes.length; i++) {
+        var tabButtons = childrenByClass(responseCodes[i], 'tab-button');
+        for (j = 0; j < tabButtons.length; j++) {
+            tabButtons[j].onclick = toggleTabButton;
+
+            // Show by default?
+            if (j === 0) {
+                toggleTabButton({target: tabButtons[j]});
+            }
+        }
+    }
+
+    // Make nav items clickable to collapse/expand their content.
+    var navItems = document.querySelectorAll('nav .resource-group .heading');
+    for (i = 0; i < navItems.length; i++) {
+        navItems[i].onclick = toggleCollapseNav;
+
+        // Show all by default
+        toggleCollapseNav({target: navItems[i].children[0]});
+    }
+}
+
+// Initial call to set up buttons
+init();
+
+window.onload = function () {
+    autoCollapse();
+    // Remove the `preload` class to enable animations
+    document.querySelector('body').className = '';
+};
+</script></body></html>
