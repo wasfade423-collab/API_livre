@@ -7,9 +7,13 @@
     $livre->description = $livreComming->description;
     $livre->author = $livreComming->author;
     $livre->impressions = $livreComming->impressions;
-    $livre->etoiles = $livreComming->etoiles;
+
+    $etoiles = htmlspecialchars(strip_tags($livreComming->etoiles));
+    if($etoiles>=0 && $etoiles<=5){
+        $livre->etoiles = $etoiles;
+    }
     $livre->chemin = $livreComming->chemin;
-    $livre->categoriy_id = $livreComming->category_id;
+    $livre->category_id = $livreComming->category_id;
     //3-Sauvegarde dans la base de données
     if($livre->update($id)){//si la sauvegarde bien éffectuée faire:
         echo json_encode(array("message"=>"Modification effectée"));

@@ -147,18 +147,13 @@
             $stmt->bindParam(':category_id', $this->category_id);
             $stmt->bindParam(':chemin', $this->chemin);
 
-            // try{
-            //     if($stmt->execute()){
-            //         return true;
-            //     }
-            // }
-            // catch(Exception $e){
-            //     return false;
-            // }
-            if($stmt->execute()){
-                return true;
-            }else{
-                return  false;
+            try{
+                if($stmt->execute()){
+                    return true;
+                }
+            }
+            catch(Exception $e){
+                return false;
             }
         }       
     }

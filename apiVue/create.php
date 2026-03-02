@@ -7,7 +7,11 @@
     $livre->author = htmlspecialchars(strip_tags($datas->author));
     $livre->description = htmlspecialchars(strip_tags($datas->description));
     $livre->impressions = htmlspecialchars(strip_tags($datas->impressions));
-    $livre->etoiles = htmlspecialchars(strip_tags($datas->etoiles));
+
+    $etoiles = htmlspecialchars(strip_tags($datas->etoiles));
+    if($etoiles>=0 && $etoiles<=5){
+        $livre->etoiles = $etoiles;
+    }
     $livre->chemin = htmlspecialchars(strip_tags($datas->chemin));
     $livre->category_id = htmlspecialchars(strip_tags($datas->category_id));
     //3-Sauvegarde dans la base de données
