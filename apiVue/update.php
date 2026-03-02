@@ -9,6 +9,7 @@
     $livre->impressions = $livreComming->impressions;
     $livre->etoiles = $livreComming->etoiles;
     $livre->chemin = $livreComming->chemin;
+    $livre->categoriy_id = $livreComming->category_id;
     //3-Sauvegarde dans la base de données
     if($livre->update($id)){//si la sauvegarde bien éffectuée faire:
         echo json_encode(array("message"=>"Modification effectée"));
