@@ -7,6 +7,29 @@
     // chargement des classes et initialisation de la DB
     include_once('core/initialize.php');
 
+    $headers = getallheaders();
+
+    if(!isset($headers['Authorization']) || $headers['Authorization'] !== Authorization){
+        http_response_code(401);
+
+        echo json_encode(["message"=>"Token absent ou invalide."]);
+
+        exit();
+    }else{
+        $api_key = str_replace("First ", "", $headers['Authorization']);
+
+        if(empty($api_key) || $api_key !== API_KEY){
+            http_response_code(401);
+
+            echo json_encode(["message"=>"Clé API absente ou incorrect."]);
+
+            exit();//exit pour dire que si l'utilisation n'a pas ou n'a pa renseigné le bon API_KEY il est automatique sortir.
+        }
+    
+    }
+
+
+
     // création des objets métiers avec la connexion partagée
     $livre     = new Livres($database);
     
@@ -23,6 +46,7 @@
 
     $ressource = $request[0];
     $id        = $request[1] ?? null; 
+
 
     if($method === "OPTIONS"){
         http_response_code(200);

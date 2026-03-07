@@ -22,5 +22,6 @@
     $response = curl_exec($ch);
     //4- Je stocke alors les donnéés que renvoient l'endpoint dans (tableau par exemple)
     $datas = json_decode($response, true);
+    var_dump($datas);
 
 ?>
