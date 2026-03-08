@@ -2,7 +2,7 @@
     // en-têtes CORS et type de contenu pour répondre en JSON
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
-    header('Access-Control-Allow-Methods: POST, PUT, GET, OPTIONS');
+    header('Access-Control-Allow-Methods: POST, PATCH, GET, OPTIONS');
     header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Methods, Access-Control-Allow-Origin, X-Reqested-With, Authorization');
     // chargement des classes et initialisation de la DB
     include_once('core/initialize.php');
@@ -16,7 +16,7 @@
 
         exit();
     }else{
-        $api_key = str_replace("First ", "", $headers['Authorization']);
+        $api_key = str_replace('Bearer ', '', $headers['Authorization']);
 
         if(empty($api_key) || $api_key !== API_KEY){
             http_response_code(401);
@@ -68,7 +68,7 @@
                     }
                     break;
                 }
-                case "PUT" : {
+                case "PATCH" : {
                     if($id === null){
                         echo json_encode(["message"=>"Endpoint incorrect."]);
                     }else{
@@ -129,7 +129,7 @@
                     }
                     break;
                 }
-                case "PUT" :{
+                case "PATCH" :{
                     if($id === null){
                         echo json_encode(["message"=> "Endpoint incorrect."]);
                     }else{
