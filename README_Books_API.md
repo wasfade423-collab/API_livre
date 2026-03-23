@@ -8,6 +8,8 @@ Elle permet de créer, lire, modifier et supprimer des livres, ainsi que de réc
 ## 📋 Table des matières
 
 1. [Technologies](#-technologies-utilisées)
+2. [Configuration de base](#-configuration-de-base)
+3. [Authentification](#authentification)
 4. [Endpoints](#-endpoints)
 5. [Format des données](#-format-des-données)
 6. [Exemples d'utilisation](#-exemples-dutilisation)
@@ -47,6 +49,16 @@ Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Methods, Access
 ```
 
 **Note** : CORS est actuellement ouvert à tous les domaines (`*`). À adapter selon vos besoins de sécurité.
+
+### Authentification
+
+**Clé API requise** : Toutes les requêtes doivent inclure une clé API valide dans l'en-tête `Authorization` au format Bearer.
+
+```
+Authorization: Bearer 5N3021#5LU#EYC!%TK19^N75$SQ%18&#$6H*$&2@%*J3K6TBS&T5*D9U09$^
+```
+
+**Note** : Sans cette clé, l'API retournera une erreur 401 Unauthorized avec le message "Clé API absente ou incorrect."
 
 ---
 
@@ -488,7 +500,13 @@ GET /api/categories/1
    - Sélectionner `raw`
    - Sélectionner le format `JSON`
 
-3. **Ajouter les données**
+3. **Ajouter l'en-tête d'authentification**
+   - Cliquer sur l'onglet `Headers`
+   - Ajouter une nouvelle ligne :
+     - Key : `Authorization`
+     - Value : `Bearer 5N3021#5LU#EYC!%TK19^N75$SQ%18&#$6H*$&2@%*J3K6TBS&T5*D9U09$^`
+
+4. **Ajouter les données**
 ```json
 {
   "title": "Neuromancien",
@@ -501,7 +519,7 @@ GET /api/categories/1
 }
 ```
 
-4. **Envoyer**
+5. **Envoyer**
    - Cliquer sur `Send`
    - Vérifier la réponse : `"message": "Création effectuée"`
 
@@ -513,7 +531,13 @@ GET /api/categories/1
    - Méthode : `GET`
    - URL : `http://apibook.wuaze.com/api/livres`
 
-2. **Envoyer**
+2. **Ajouter l'en-tête d'authentification**
+   - Cliquer sur l'onglet `Headers`
+   - Ajouter une nouvelle ligne :
+     - Key : `Authorization`
+     - Value : `Bearer 5N3021#5LU#EYC!%TK19^N75$SQ%18&#$6H*$&2@%*J3K6TBS&T5*D9U09$^`
+
+3. **Envoyer**
    - Cliquer sur `Send`
    - Observer la liste des livres en réponse
 
@@ -525,7 +549,13 @@ GET /api/categories/1
    - Méthode : `PUT`
    - URL : `http://apibook.wuaze.com/api/livres/1`
 
-2. **Body (JSON)**
+2. **Ajouter l'en-tête d'authentification**
+   - Cliquer sur l'onglet `Headers`
+   - Ajouter une nouvelle ligne :
+     - Key : `Authorization`
+     - Value : `Bearer 5N3021#5LU#EYC!%TK19^N75$SQ%18&#$6H*$&2@%*J3K6TBS&T5*D9U09$^`
+
+3. **Body (JSON)**
 ```json
 {
   "title": "Neuromancien - Édition 2024",
@@ -537,7 +567,7 @@ GET /api/categories/1
 }
 ```
 
-3. **Envoyer et vérifier**
+4. **Envoyer et vérifier**
 
 ---
 
@@ -547,7 +577,13 @@ GET /api/categories/1
    - Méthode : `DELETE`
    - URL : `http://apibook.wuaze.com/api/livres/5`
 
-2. **Envoyer**
+2. **Ajouter l'en-tête d'authentification**
+   - Cliquer sur l'onglet `Headers`
+   - Ajouter une nouvelle ligne :
+     - Key : `Authorization`
+     - Value : `Bearer 5N3021#5LU#EYC!%TK19^N75$SQ%18&#$6H*$&2@%*J3K6TBS&T5*D9U09$^`
+
+3. **Envoyer**
 
 ---
 
@@ -556,13 +592,15 @@ GET /api/categories/1
 #### Récupérer tous les livres
 ```bash
 curl -X GET "http://apibook.wuaze.com/api/livres" \
-  -H "Content-Type: application/json"
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer 5N3021#5LU#EYC!%TK19^N75$SQ%18&#$6H*$&2@%*J3K6TBS&T5*D9U09$^"
 ```
 
 #### Créer un livre
 ```bash
 curl -X POST "http://apibook.wuaze.com/api/livres" \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer 5N3021#5LU#EYC!%TK19^N75$SQ%18&#$6H*$&2@%*J3K6TBS&T5*D9U09$^" \
   -d '{
     "title": "Cryptonomicon",
     "author": "Neal Stephenson",
@@ -578,6 +616,7 @@ curl -X POST "http://apibook.wuaze.com/api/livres" \
 ```bash
 curl -X PUT "http://apibook.wuaze.com/api/livres/1" \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer 5N3021#5LU#EYC!%TK19^N75$SQ%18&#$6H*$&2@%*J3K6TBS&T5*D9U09$^" \
   -d '{
     "title": "1984 - Édition annotée",
     "author": "George Orwell",
@@ -591,7 +630,8 @@ curl -X PUT "http://apibook.wuaze.com/api/livres/1" \
 #### Supprimer un livre
 ```bash
 curl -X DELETE "http://apibook.wuaze.com/api/livres/5" \
-  -H "Content-Type: application/json"
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer 5N3021#5LU#EYC!%TK19^N75$SQ%18&#$6H*$&2@%*J3K6TBS&T5*D9U09$^"
 ```
 
 ---
@@ -604,12 +644,24 @@ curl -X DELETE "http://apibook.wuaze.com/api/livres/5" \
 |------|---------------|---------|
 | **200** | OK - Requête réussie | GET, PUT, DELETE réussis |
 | **201** | Created - Ressource créée | POST réussi |
+| **401** | Unauthorized - Non autorisé | Clé API absente ou incorrecte |
 | **400** | Bad Request - Requête invalide | ID non numérique |
 | **404** | Not Found - Ressource non trouvée | Livre inexistant |
 | **405** | Method Not Allowed | Méthode HTTP non supportée |
 | **500** | Server Error - Erreur serveur | Erreur de base de données |
 
 ### Erreurs courantes
+
+#### ❌ Clé API absente ou incorrecte
+```json
+{
+  "message": "Clé API absente ou incorrect."
+}
+```
+**Cause** : En-tête Authorization manquant ou clé invalide  
+**Solution** : Ajouter `Authorization: Bearer [VOTRE_CLÉ_API]`
+
+---
 
 #### ❌ Endpoint incorrect
 ```json
